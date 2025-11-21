@@ -343,6 +343,15 @@ static void NameplateStackingUpdateSmooth(lua_State* L, NamePlateVars* vars)
         double width = 0, height = 0;
         GetSize(L, frame_idx, width, height);
 
+        if (nameplate.isFriendly) {
+            if (nameplateFriendlyHitboxHeight > 0) SetHeight(L, frame_idx, nameplateFriendlyHitboxHeight);
+            if (nameplateFriendlyHitboxWidth > 0) SetWidth(L, frame_idx, nameplateFriendlyHitboxWidth);
+        }
+        else {
+            if (nameplateHitboxHeight > 0) SetHeight(L, frame_idx, nameplateHitboxHeight);
+            if (nameplateHitboxWidth > 0) SetWidth(L, frame_idx, nameplateHitboxWidth);
+        }
+
         if (!nameplateStackFriendly && nameplate.isFriendly) {
             SetClampedToScreen(L, frame_idx, true);
             SetClampRectInsets(L, frame_idx, -10, 10, upperBorder, -nameplate.ypos - originPos + height / 2);
