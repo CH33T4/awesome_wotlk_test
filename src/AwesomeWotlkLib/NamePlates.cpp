@@ -332,6 +332,10 @@ static void NameplateStackingUpdateSmooth(lua_State* L, NamePlateVars* vars)
     double speedRaise = std::atof(s_cvar_nameplateSpeedRaise->vStr) / 100;
     double speedReset = std::atof(s_cvar_nameplateSpeedReset->vStr) / 100;
     double speedLower = std::atof(s_cvar_nameplateSpeedLower->vStr) / 100;
+    int nameplateHitboxHeight = std::atoi(s_cvar_nameplateHitboxHeight->vStr);
+    int nameplateHitboxWidth = std::atoi(s_cvar_nameplateHitboxWidth->vStr);
+    int nameplateFriendlyHitboxHeight = std::atoi(s_cvar_nameplateFriendlyHitboxHeight->vStr);
+    int nameplateFriendlyHitboxWidth = std::atoi(s_cvar_nameplateFriendlyHitboxWidth->vStr);
     const double nameplateMaxRaiseDistance = std::atoi(s_cvar_nameplateMaxRaiseDistance->vStr);
 
     for (size_t i = 0; i < vars->nameplates.size(); ++i) {
